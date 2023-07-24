@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/RouHim/super-shell-rs/compare/v1.1.1...v1.2.0) (2023-07-24)
+
+
+### Features
+
+* **lib:** windows compatible ([08f0229](https://github.com/RouHim/super-shell-rs/commit/08f0229cd0c5fa3508ea62ad8662240309629dff))
+
 ## [1.1.1](https://github.com/RouHim/super-shell-rs/compare/v1.1.0...v1.1.1) (2023-07-24)
 
 # [1.1.0](https://github.com/RouHim/super-shell-rs/compare/v1.0.3...v1.1.0) (2023-07-24)
