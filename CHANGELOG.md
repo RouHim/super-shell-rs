@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/RouHim/super-shell-rs/compare/v1.0.3...v1.1.0) (2023-07-24)
+
+
+### Features
+
+* **root:** add custom shell ([863b577](https://github.com/RouHim/super-shell-rs/commit/863b577defeec2677219651cb76bfd516adb6634))
+* **root:** add custom shell ([8ed3477](https://github.com/RouHim/super-shell-rs/commit/8ed3477a73c350dac205338c4b809672fb3a3581))
+
 ## [1.0.3](https://github.com/RouHim/super-shell-rs/compare/v1.0.2...v1.0.3) (2023-07-24)
 
 ## [1.0.2](https://github.com/RouHim/super-shell-rs/compare/v1.0.1...v1.0.2) (2023-07-24)
