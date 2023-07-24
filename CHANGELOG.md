@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/RouHim/super-shell-rs/compare/v1.0.0...v1.0.1) (2023-07-24)
+
+
+### Bug Fixes
+
+* **cargo:** invalid cargo keyword ([7deb969](https://github.com/RouHim/super-shell-rs/commit/7deb969e6c12296acf645dc3a8db4b57b3d23dc1))
+
 # 1.0.0 (2023-07-24)
 
 
