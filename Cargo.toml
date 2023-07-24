@@ -8,7 +8,7 @@ description = "This library povides basic super user shell access in rust."
 readme = "README.md"
 homepage = "https://github.com/RouHim/super-shell-rs"
 repository = "https://github.com/RouHim/super-shell-rs"
-keywords = ["shell", "super user", "root", "sudo", "su"]
+keywords = ["shell", "super-user", "root", "sudo", "su"]
 categories = ["system", "shell"]
 
 [dependencies]
