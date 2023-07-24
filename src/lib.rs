@@ -21,8 +21,19 @@ impl RootShell {
     /// let mut root_shell = RootShell::new().expect("Failed to crate root shell");
     /// println!("{}", root_shell.execute("echo Hello $USER"));
     /// ```
+    #[cfg(target_os = "linux")]
     pub fn new() -> Option<Self> {
         Self::spawn_root_shell("pkexec", "sh")
+    }
+
+    #[cfg(target_os = "windows")]
+    pub fn new() -> Option<Self> {
+        None
+    }
+
+    #[cfg(target_os = "windows")]
+    pub fn new_custom(super_user_provider: &str, shell: &str) -> Option<Self> {
+        None
     }
 
     /// Creates a new root shell with the specified super user provider and shell.
@@ -37,6 +48,7 @@ impl RootShell {
     /// let mut root_shell = RootShell::new_custom("gksu", "bash").expect("Failed to crate root shell");
     /// println!("{}", root_shell.execute("echo Hello $USER"));
     /// ```
+    #[cfg(target_os = "linux")]
     pub fn new_custom(super_user_provider: &str, shell: &str) -> Option<Self> {
         Self::spawn_root_shell(super_user_provider, shell)
     }
@@ -77,6 +89,10 @@ impl RootShell {
     /// assert!(root_shell.execute("echo Hello $USER").trim().eq("Hello root"));
     /// ```
     pub fn execute(&mut self, command: impl AsRef<str>) -> String {
+        // If not linux return empty string
+        #[cfg(not(target_os = "linux"))]
+        return "".to_string();
+
         // Append end of command string to the command
         let command = command.as_ref().to_string();
 
