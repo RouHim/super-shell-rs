@@ -2,10 +2,14 @@ use std::io::{BufRead, BufReader, Write};
 
 use std::process::{Command, Stdio};
 
-/// Represents a shell with root privileges
-/// The shell is automatically closed when the struct is dropped
-/// The shell is opened with the pkexec command
-/// It uses the sh shell
+/// Represents a shell with root privileges.
+/// The shell is automatically closed when the struct is dropped.
+/// # Example
+/// ```
+/// use super_shell::RootShell;
+/// let mut root_shell = RootShell::new().expect("Failed to crate root shell");
+/// println!("{}", root_shell.execute("echo Hello $USER"));
+/// ```
 pub struct RootShell {
     shell_process: std::process::Child,
 }
@@ -17,10 +21,39 @@ const END_OF_COMMAND: &str = "~end-of-command~";
 impl RootShell {
     /// Creates a new root shell
     /// Returns None if the root shell could not be created
-    /// or if the user did not enter the password
+    /// # Example
+    /// ```
+    /// use super_shell::RootShell;
+    /// let mut root_shell = RootShell::new().expect("Failed to crate root shell");
+    /// println!("{}", root_shell.execute("echo Hello $USER"));
+    /// ```
     pub fn new() -> Option<Self> {
-        let shell_process = Command::new("pkexec")
-            .arg("sh")
+        Self::spawn_root_shell("pkexec", "sh")
+    }
+
+    /// Creates a new root shell with the specified super user provider and shell
+    /// Returns None if the root shell could not be created
+    /// # Parameter
+    /// * `super_user_provider` - The command to use to get super user privileges
+    /// * `shell` - The shell to use
+    /// # Example
+    /// ```
+    /// use super_shell::RootShell;
+    /// let mut root_shell = RootShell::new_custom("sudo", "bash").expect("Failed to crate root shell");
+    /// println!("{}", root_shell.execute("echo Hello $USER"));
+    /// ```
+    pub fn new_custom(super_user_provider: &str, shell: &str) -> Option<Self> {
+        Self::spawn_root_shell(super_user_provider, shell)
+    }
+
+    /// Creates a new root shell with the specified super user provider and shell
+    /// Returns None if the root shell could not be created
+    /// # Parameter
+    /// * `super_user_provider` - The command to use to get super user privileges
+    /// * `shell` - The shell to use
+    fn spawn_root_shell(super_user_provider: &str, shell: &str) -> Option<RootShell> {
+        let shell_process = Command::new(super_user_provider)
+            .arg(shell)
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
             .stderr(Stdio::inherit())
@@ -40,6 +73,14 @@ impl RootShell {
 
     /// Executes a command in the root shell and returns the output trimmed
     /// Blocks the current thread until the command is finished
+    /// # Parameter
+    /// * `command` - The command to execute
+    /// # Example
+    /// ```
+    /// use super_shell::RootShell;
+    /// let mut root_shell = RootShell::new().expect("Failed to crate root shell");
+    /// assert!(root_shell.execute("echo Hello $USER").trim().eq("Hello root"));
+    /// ```
     pub fn execute(&mut self, command: impl AsRef<str>) -> String {
         // Append end of command string to the command
         let command = command.as_ref().to_string();
