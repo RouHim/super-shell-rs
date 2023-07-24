@@ -102,8 +102,8 @@ jobs:
             @semantic-release/changelog  \
             @semantic-release/exec \
             @semantic-release/commit-analyzer \
-            conventional-changelog-conventionalcommits \
-            semantic-release-cargo
+            @semantic-release/semantic-release-cargo \
+            conventional-changelog-conventionalcommits            
 
       - name: Generate Semantic Release Notes and Create Release
         env:
