@@ -33,3 +33,4 @@ fn main() {
 ## Limitations
 * Currently only Linux is supported
 * No stderr handling
+* No sudo support
