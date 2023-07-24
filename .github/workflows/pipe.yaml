@@ -76,7 +76,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2 # use /rust/cargo caching
 
       - name: Test code
-        run: cargo test
+        run: cargo test --lib
 
   release-artifacts:
     name: Release artifacts

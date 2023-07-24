@@ -134,3 +134,14 @@ impl Drop for RootShell {
         self.shell_process.wait().expect("failed to wait on child");
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::RootShell;
+
+    #[test]
+    fn test_custom_sudo() {
+        let mut root_shell = RootShell::new_custom("sudo", "bash").unwrap();
+        assert!(root_shell.execute("echo Hello $USER").trim().eq("Hello root"));
+    }
+}

@@ -32,4 +32,4 @@ fn main() {
 
 ## Limitations
 * Currently only Linux is supported
-* No Stderr handling
+* No stderr handling
