@@ -142,6 +142,9 @@ mod tests {
     #[test]
     fn test_custom_sudo() {
         let mut root_shell = RootShell::new_custom("sudo", "bash").unwrap();
-        assert!(root_shell.execute("echo Hello $USER").trim().eq("Hello root"));
+        assert!(root_shell
+            .execute("echo Hello $USER")
+            .trim()
+            .eq("Hello root"));
     }
 }
