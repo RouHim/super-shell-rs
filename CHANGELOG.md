@@ -1,3 +1,5 @@
+## [1.2.1](https://github.com/RouHim/super-shell-rs/compare/v1.2.0...v1.2.1) (2023-09-06)
+
 # [1.2.0](https://github.com/RouHim/super-shell-rs/compare/v1.1.1...v1.2.0) (2023-07-24)
 
 
