@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/RouHim/super-shell-rs/main/logo.png" width="500"/>
+    <img src="https://raw.githubusercontent.com/RouHim/super-shell-rs/main/logo.png" width="350"/>
 </p>
 
 <p align="center">
@@ -19,14 +19,15 @@ use super_shell::RootShell;
 
 fn main() {
     // Super user privileges are requested once via pkexec as default.
-    let mut root_shell = RootShell::new().expect("Failed to crate root shell");
+    let mut root_shell = RootShell::new().expect("Failed to create root shell");
     
     // All subsequent requests are executed as root user
     println!("{}", root_shell.execute("echo Hello $USER"));
     
     // Each command blocks until the response is fully received
-    println!("{}", root_shell.execute("echo sleeping for 3s ..."));
+    println!("{}", root_shell.execute("echo now sleeping for 3s ..."));
     root_shell.execute("sleep 3");
+    println!("done")
 }
 ```
 
