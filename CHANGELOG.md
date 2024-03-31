@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/RouHim/super-shell-rs/compare/v1.2.3...v1.2.4) (2024-03-31)
+
+
+### Bug Fixes
+
+* **cargo:** typo ([7b89eae](https://github.com/RouHim/super-shell-rs/commit/7b89eae95c17c518a6f2d06bff5a3a6a0e69ac32))
+
 ## [1.2.3](https://github.com/RouHim/super-shell-rs/compare/v1.2.2...v1.2.3) (2023-10-26)
 
 ## [1.2.2](https://github.com/RouHim/super-shell-rs/compare/v1.2.1...v1.2.2) (2023-09-25)
