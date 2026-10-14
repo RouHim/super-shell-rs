@@ -1,3 +1,10 @@
+## [1.2.13](https://github.com/RouHim/super-shell-rs/compare/v1.2.12...v1.2.13) (2026-10-14)
+
+
+### Bug Fixes
+
+* use valid crates.io category slugs ([cb7f96c](https://github.com/RouHim/super-shell-rs/commit/cb7f96cc6ddc449e4606f661724e3703d4406676))
+
 ## [1.2.12](https://github.com/RouHim/super-shell-rs/compare/v1.2.11...v1.2.12) (2026-07-18)
 
 ## [1.2.11](https://github.com/RouHim/super-shell-rs/compare/v1.2.10...v1.2.11) (2026-06-21)
