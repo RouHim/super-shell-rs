@@ -9,6 +9,6 @@ readme = "README.md"
 homepage = "https://github.com/RouHim/super-shell-rs"
 repository = "https://github.com/RouHim/super-shell-rs"
 keywords = ["shell", "super-user", "root", "sudo", "su"]
-categories = ["system", "shell"]
+categories = ["os", "command-line-utilities"]
 
 [dependencies]
